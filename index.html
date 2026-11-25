@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creative Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#241552; --pink:#ff3d81; --sun:#ffc93c; --teal:#12c9b1; --orange:#ff7a3d; --violet:#7c4dff; --cream:#fff8ee;
+  --display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --body:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--cream);line-height:1.6;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);line-height:1.05}
+
+/* nav */
+header{position:sticky;top:0;z-index:10;background:var(--cream);border-bottom:3px solid var(--ink)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1100px;margin:0 auto;flex-wrap:wrap;gap:10px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.4rem;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo i{width:22px;height:22px;border-radius:50%;background:conic-gradient(var(--pink),var(--sun),var(--teal),var(--violet),var(--pink))}
+nav ul{list-style:none;display:flex;gap:6px;padding:0;flex-wrap:wrap}
+nav ul a{text-decoration:none;font-weight:700;padding:6px 14px;border-radius:99px;transition:background .2s}
+nav ul a:hover{background:var(--sun)}
+
+/* hero */
+.hero{background:linear-gradient(135deg,var(--violet) 0%,var(--pink) 55%,var(--orange) 100%);color:#fff;position:relative;overflow:hidden;border-bottom:3px solid var(--ink)}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;padding-top:80px;padding-bottom:90px}
+.hero h1{font-size:clamp(2.8rem,7vw,5.2rem);font-weight:800;letter-spacing:-.02em}
+.hero h2{font-family:var(--body);font-weight:500;font-size:1.35rem;margin:18px 0 8px}
+.hero p{max-width:46ch;opacity:.95}
+.btn{display:inline-block;margin-top:28px;padding:15px 32px;background:var(--sun);color:var(--ink);font-weight:700;border:3px solid var(--ink);border-radius:99px;text-decoration:none;box-shadow:5px 5px 0 var(--ink);transition:transform .15s,box-shadow .15s;font-family:var(--body);font-size:1rem;cursor:pointer}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+.art{position:relative;height:340px}
+.art span{position:absolute;border:3px solid var(--ink);animation:float 6s ease-in-out infinite}
+.s1{width:190px;height:190px;border-radius:50%;background:var(--sun);top:10px;left:20px}
+.s2{width:150px;height:150px;background:var(--teal);border-radius:28px;top:130px;right:10px;transform:rotate(12deg);animation-delay:-2s!important}
+.s3{width:120px;height:120px;background:var(--cream);border-radius:50% 50% 0 50%;bottom:0;left:70px;animation-delay:-4s!important}
+.s4{width:60px;height:60px;background:var(--ink);border-radius:50%;top:0;right:80px;animation-delay:-1s!important}
+@keyframes float{50%{translate:0 -14px}}
+
+/* marquee */
+.strip{background:var(--ink);color:var(--sun);overflow:hidden;white-space:nowrap;padding:16px 0;font-family:var(--display);font-weight:800;font-size:1.4rem}
+.strip div{display:inline-block;animation:slide 22s linear infinite}
+.strip span{margin:0 22px}
+.strip b{color:var(--pink)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+section{padding:90px 0}
+.head{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;margin-bottom:12px}
+.lead{max-width:52ch;margin-bottom:44px}
+
+/* services */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px}
+.card{border:3px solid var(--ink);padding:32px 28px;box-shadow:7px 7px 0 var(--ink);transition:transform .2s}
+.card:hover{transform:translateY(-6px) rotate(-1deg)}
+.card h3{font-size:1.7rem;margin:14px 0 8px}
+.card .ico{font-size:2.6rem;display:inline-grid;place-items:center;width:76px;height:76px;background:#fff;border:3px solid var(--ink);border-radius:50%}
+.c1{background:var(--sun);border-radius:30px 30px 4px 30px}
+.c2{background:var(--teal);border-radius:30px 4px 30px 30px}
+.c3{background:var(--pink);color:#fff;border-radius:4px 30px 30px 30px}
+.c3 .ico{color:var(--ink)}
+
+/* about */
+.about{background:var(--ink);color:#fff}
+.about .wrap{display:grid;grid-template-columns:.7fr 1.3fr;gap:50px;align-items:center}
+.badge{aspect-ratio:1;border-radius:50%;background:conic-gradient(from 20deg,var(--pink),var(--sun),var(--teal),var(--violet),var(--pink));display:grid;place-items:center;border:4px solid #fff;max-width:300px;width:100%}
+.badge span{background:var(--ink);border-radius:50%;width:70%;aspect-ratio:1;display:grid;place-items:center;font-size:4.5rem}
+.about p{margin-bottom:16px;max-width:56ch}
+.mission{margin-top:26px;background:var(--sun);color:var(--ink);padding:20px 24px;border-radius:20px;font-weight:500;max-width:56ch}
+
+/* contact */
+.contact{background:var(--teal);border-top:3px solid var(--ink)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.info p{font-size:1.15rem;font-weight:500;margin-bottom:14px}
+form{background:var(--cream);border:3px solid var(--ink);border-radius:26px;padding:30px;box-shadow:8px 8px 0 var(--ink)}
+label{display:block;font-weight:700;margin-bottom:16px}
+input,textarea{display:block;width:100%;margin-top:6px;padding:12px 14px;font:inherit;border:3px solid var(--ink);border-radius:14px;background:#fff;color:var(--ink)}
+input:focus,textarea:focus{outline:none;border-color:var(--pink);box-shadow:0 0 0 3px var(--sun)}
+textarea{min-height:110px;resize:vertical}
+form .btn{margin-top:6px;background:var(--pink);color:#fff}
+#ok{margin-top:18px;font-weight:700}
+
+footer{background:var(--ink);color:#fff;text-align:center;padding:28px 24px;font-size:.95rem}
+footer::before{content:"";display:block;height:6px;width:200px;margin:0 auto 18px;border-radius:9px;background:linear-gradient(90deg,var(--pink),var(--sun),var(--teal),var(--violet))}
+
+@media(max-width:800px){
+  .hero .wrap,.about .wrap,.contact .wrap{grid-template-columns:1fr}
+  .art{height:260px}.s1{width:140px;height:140px}.s2{width:110px;height:110px}.s3{width:90px;height:90px}
+  section{padding:64px 0}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <nav aria-label="Main">
+    <a class="logo" href="#home"><i></i>CreativeStudio</a>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+<div class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <h1>Creative Studio</h1>
+      <h2>We Build Creative Digital Experiences</h2>
+      <p>We help businesses grow with modern website design, branding and digital solutions.</p>
+      <a class="btn" href="#contact">Contact Us</a>
+    </div>
+    <div class="art" aria-hidden="true"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span></div>
+  </div>
+</div>
+
+<div class="strip" aria-hidden="true">
+  <div>
+    <span>Creative Design</span><b>✦</b><span>Website Development</span><b>✦</b><span>Digital Solutions</span><b>✦</b>
+    <span>Creative Design</span><b>✦</b><span>Website Development</span><b>✦</b><span>Digital Solutions</span><b>✦</b>
+    <span>Creative Design</span><b>✦</b><span>Website Development</span><b>✦</b><span>Digital Solutions</span><b>✦</b>
+    <span>Creative Design</span><b>✦</b><span>Website Development</span><b>✦</b><span>Digital Solutions</span><b>✦</b>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <h2 class="head">Our Services</h2>
+    <p class="lead">Everything you need to look great and get found online.</p>
+    <div class="cards">
+      <article class="card c1"><span class="ico">🌐</span><h3>Web Design</h3><p>Beautiful and responsive websites that work on every phone, tablet and computer.</p></article>
+      <article class="card c2"><span class="ico">🎨</span><h3>Graphic Design</h3><p>Creative logos and brand identity: colors, fonts and visuals that make you memorable.</p></article>
+      <article class="card c3"><span class="ico">📣</span><h3>Digital Marketing</h3><p>Promote your business online with social media, search and email campaigns.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="badge" aria-hidden="true"><span>🧑‍💻</span></div>
+    <div>
+      <h2 class="head">About Us</h2>
+      <p>Creative Studio is a small team of designers, developers and marketers who love turning ideas into clear, useful digital products.</p>
+      <p>We work closely with every client to understand their goals, then design and build websites and brands that look great and bring in customers.</p>
+      <div class="mission"><strong>Our mission:</strong> help businesses grow with modern, honest and creative digital work.</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="info">
+      <h2 class="head">Contact Us</h2>
+      <p class="lead">Have a project in mind? Tell us about it and we will reply within two working days.</p>
+      <p>📧 hello@creativestudio.example</p>
+      <p>📞 +880 1XXX-XXXXXX</p>
+      <p>📍 Dhaka, Bangladesh</p>
+    </div>
+    <form id="f">
+      <label>Name<input type="text" name="name" required></label>
+      <label>Email<input type="email" name="email" required></label>
+      <label>Message<textarea name="message" required></textarea></label>
+      <button class="btn" type="submit">Send message</button>
+      <p id="ok" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 Creative Studio. All rights reserved.</footer>
+
+<script>
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  document.getElementById('ok').textContent='Thanks! Your message is ready. (Connect this form to email or Google Forms to receive messages.)';
+  this.reset();
+});
+</script>
+</body>
+</html>
